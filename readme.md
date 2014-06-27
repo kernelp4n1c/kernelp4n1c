@@ -23,3 +23,7 @@ $ ./artisan migrate --seed
 $ ./artisan serve
 ```
 ####
+
+Para saber mejor como funciona todo esto, RTFM -> http://laravel.com/docs
+
+
