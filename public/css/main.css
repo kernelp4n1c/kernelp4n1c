@@ -1,0 +1,50 @@
+body {
+  background-color: #e9eaed;
+}
+.wrapper {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.teacher .teacher-info img {
+  width: 150px;
+  height: 80px;
+}
+.teacher .make-comment {
+  margin-bottom: 30px;
+  overflow: auto;
+}
+.teacher .make-comment .btn-success {
+  margin-top: 10px;
+  float: right;
+}
+.teacher .comments {
+  list-style: none;
+}
+.teacher .comments li {
+  display: block;
+}
+
+
+.comment {
+  border: 1px #cecece solid;
+  padding: 10px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.comment .comment-head {
+  overflow: auto;
+  margin-bottom: 10px;
+}
+.comment .comment-head  {
+  line-height: 1.2;
+}
+.comment .comment-head img{
+  float: left;
+  border: 1px #CECECE solid;
+  width: 40px;
+  height: 30px;
+  margin-right: 10px;
+}
+.comment .comment-body p {
+  text-align: justify;
+}

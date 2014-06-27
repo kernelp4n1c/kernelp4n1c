@@ -5,4 +5,8 @@ class Comment extends Eloquent {
     public function teacher() {
         return $this->belongsTo('Teacher');
     }
+
+    public function commentTokens() {
+        return $this->hasMany('CommentToken');
+    }
 }

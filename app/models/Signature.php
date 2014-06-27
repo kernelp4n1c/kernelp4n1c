@@ -2,7 +2,7 @@
 class Signature extends Eloquent {
     public $table = 'signatures';
 
-    public function teacher() {
-        return $this->belongsTo('Teacher');
+    public function teachers() {
+        return $this->belongsToMany('Teacher', 'teacher_signature');
     }
 }
