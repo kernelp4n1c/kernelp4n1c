@@ -23,7 +23,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'nu11',
+			'database'  => 'kernelp4n1c',
 			'username'  => 'root',
 			'password'  => '12345',
 			'charset'   => 'utf8',
