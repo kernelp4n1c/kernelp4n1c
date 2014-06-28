@@ -1,5 +1,5 @@
 <?php
-class CommenToken extends Eloquent {
+class CommentToken extends Eloquent {
     public $table = 'comment_token';
 
     public function comment() {

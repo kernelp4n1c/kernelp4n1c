@@ -38,9 +38,10 @@ textarea {
 .comment .comment-head {
   overflow: auto;
   margin-bottom: 10px;
-}
-.comment .comment-head  {
   line-height: 1.2;
+}
+.comment .comment-head .date {
+  color: #6e6e6e;
 }
 .comment .comment-head img{
   float: left;

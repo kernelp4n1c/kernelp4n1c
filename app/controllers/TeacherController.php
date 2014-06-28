@@ -33,4 +33,25 @@ class TeacherController extends BaseController {
             'error'=>'text is empty'
         ], 400);
     }
+
+    public function like($id) {
+        $comment = Comment::findOrFail($id);
+        $commentTokens = CommentToken::where('token', '=', Cookie::get('anon'))
+            ->where('comment_id', '=', $id)->get();
+
+        if (count($commentTokens) === 0) {
+            $comment->count_likes = $comment->count_likes + 1;
+            $comment->save();
+
+            $commentToken = new CommentToken();
+            $commentToken->token = Cookie::get('anon');
+            $commentToken->comment_id = $id;
+            $commentToken->save();
+        }
+
+        return Response::json([
+            'id'=>$comment->id,
+            'likes'=>intval($comment->count_likes)
+        ], 200);
+    }
 }

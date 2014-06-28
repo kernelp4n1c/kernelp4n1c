@@ -31,10 +31,9 @@
             </p>
           </div>
           <div class="comment-footer">
-            <span>(0) </span>
-            <span><a href="#" class="like" title="">Like</a></span> ·
-            <span>(0) </span>
-            <span><a href="#" class="dislike" title="">Dislike</a></span> ·
+            <span data-like-id="{{$comment->id}}">({{$comment->count_likes}}) </span>
+            <span><a href="#" class="like" data-id="{{$comment->id}}">Like</a></span> ·
+
           </div>
         </div>
       </li>
@@ -42,7 +41,6 @@
     </ul>
   </div>
 </div>
-
 @stop
 
 @section('scripts')

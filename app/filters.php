@@ -19,7 +19,11 @@ App::before(function($request)
 
 App::after(function($request, $response)
 {
-	//
+	$cookie = Cookie::get('anon');
+	if (!isset($cookie)) {
+		$cookie = Cookie::forever('anon', GUID::generate());
+		$response->withCookie($cookie);
+	}
 });
 
 /*
