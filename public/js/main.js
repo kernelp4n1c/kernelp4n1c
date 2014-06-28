@@ -4,19 +4,15 @@
     doCommentButton = $('#do-comment');
     doCommentButton.on('click', doComment);
     $('#comment-text').on('keyup', enableButton);
+    $('#comment-list').on('click', '.like', doLike);
+    $('#comment-list').on('click', '.dislike', doDisLike);
     $('.date').each(function(idx, el) {
       var timestamp = parseInt(el.innerHTML, 10);
       el.innerHTML = parseDate(timestamp);
     });
-    $('#comment-list').on('click', '.like', doLike);
-    $('#comment-list').on('click', '.dislike', doDisLike);
   });
   enableButton = function() {
-    if(this.value.trim().length > 0) {
-      doCommentButton.get(0).disabled = false;
-    } else {
-      doCommentButton.get(0).disabled = true;
-    }
+    doCommentButton.get(0).disabled = this.value.trim().length <= 0;
   };
   doComment = function(e) {
     var teacherId = e.currentTarget.dataset.id;
@@ -42,6 +38,7 @@
   };
   doDisLike = function(e) {
     e.preventDefault();
+    // Not implemented yet
   };
   appendComment = function(comment) {
     var tpl = '<li>';

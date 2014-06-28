@@ -2,7 +2,7 @@
 class TeacherController extends BaseController {
     public function index($id) {
         $teacher = Teacher::findOrFail($id);
-        $comments = $teacher->comments()->get();
+        $comments = $teacher->comments()->orderBy('count_likes', 'desc')->get();
 
         return View::make('teacher.index')
             ->with('model', $teacher)
@@ -29,6 +29,7 @@ class TeacherController extends BaseController {
                 'date'=>$comment->created_at->timestamp
             ], 200);
         }
+
         return Response::json([
             'error'=>'text is empty'
         ], 400);
