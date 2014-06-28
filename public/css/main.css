@@ -1,6 +1,9 @@
 body {
   background-color: #e9eaed;
 }
+textarea {
+  resize: none;
+}
 .wrapper {
   margin-left: 16px;
   margin-right: 16px;
@@ -29,6 +32,7 @@ body {
   border: 1px #cecece solid;
   padding: 10px;
   background-color: #fff;
+  margin-bottom: 15px;
   box-sizing: border-box;
 }
 .comment .comment-head {
@@ -40,6 +44,7 @@ body {
 }
 .comment .comment-head img{
   float: left;
+  box-sizing: border-box;
   border: 1px #CECECE solid;
   width: 40px;
   height: 30px;

@@ -9,40 +9,36 @@
     </div>
     <hr>
     <div class="make-comment">
-      <textarea class="form-control" id="comment"
-        placeholder="Pon tu opinión" cols="5" rows="3">
-      </textarea>
-      <button class="btn btn-success"><b>Comentar Anonimamente ;)</b></button>
+      <textarea class="form-control" id="comment-text"
+        placeholder="Pon tu opinión" cols="5" rows="4"></textarea>
+      <button class="btn btn-success" id="do-comment" data-id="{{$model->id}}"
+        disabled="true"><b>Comentar Anonimamente ;)</b></button>
     </div>
 
-    <ul class="comments">
+    <ul class="comments" id="comment-list">
+      @foreach($comments as $comment)
       <li>
         <div class="comment">
           <div class="comment-head">
-            <img src="{{asset("uploads/$model->picture_url")}}" alt="">
-            <span><b>Un tal loco</b></span>
+            <img src="{{asset("uploads/$model->picture_url")}}">
+            <span><b>{{$comment->anon_author}}</b></span>
             <br>
-            <span><i>fecha</i></span>
+            <span><i class="date">{{$comment->created_at->timestamp}}</i></span>
           </div>
           <div class="comment-body">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              {{{$comment->content}}}
             </p>
           </div>
           <div class="comment-footer">
             <span>(0) </span>
-            <span><a href="#" title="">Like</a></span> ·
-            <span>(1) </span>
-            <span><a href="#" title="">Dislike</a></span> ·
-            <span><a href="#" title="">Comment</a></span>
+            <span><a href="#" class="like" title="">Like</a></span> ·
+            <span>(0) </span>
+            <span><a href="#" class="dislike" title="">Dislike</a></span> ·
           </div>
         </div>
       </li>
+      @endforeach
     </ul>
   </div>
 </div>

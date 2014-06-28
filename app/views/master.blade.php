@@ -16,5 +16,6 @@
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 @yield('scripts', '')
+<i id="ghost"></i>
 </body>
 </html>

@@ -31,6 +31,7 @@ class General extends Migration {
 		Schema::create('comments', function($t) {
 			$t->increments('id');
 			$t->string('content');
+			$t->string('anon_author');
 			$t->integer('comment_id')->unsigned()->nullable();
 			$t->integer('teacher_id')->unsigned();
 			$t->integer('count_likes')->default(0);

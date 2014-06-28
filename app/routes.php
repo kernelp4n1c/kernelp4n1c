@@ -17,3 +17,6 @@ Route::get('/', function()
 });
 
 Route::get('teacher/{id}', ['uses'=>'TeacherController@index']);
+Route::post('teacher/{id}/comment',['uses'=>'TeacherController@comment']);
+// Route::post('teacher/comment/{id}/like',['uses'=>'TeacherController@like']);
+// Route::post('teacher/comment/{id}/dislike',['uses'=>'TeacherController@dislike']);
