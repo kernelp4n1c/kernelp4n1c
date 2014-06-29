@@ -15,7 +15,7 @@ class TeacherController extends BaseController {
         if (count($text) > 0) {
             $comment = new Comment();
             $comment->content = $text;
-            $comment->anon_author = GUID::generate();
+            $comment->anon_author = 'anonymous';
             $comment->teacher_id = $id;
             $comment->count_likes = 0;
             $comment->save();

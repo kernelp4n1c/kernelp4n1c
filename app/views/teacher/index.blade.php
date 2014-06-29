@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-  <div class="col-md-5 teacher">
+  <div class="col-md-6 col-md-offset-3 teacher">
     <div class="teacher-info">
       <img src="{{asset("uploads/$model->picture_url")}}" alt="">
       <h1>{{{$model->name}}}</h1>

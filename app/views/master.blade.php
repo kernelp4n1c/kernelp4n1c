@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Nu11</title>
+  <title>Paredón| </title>
   <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
   <link rel="stylesheet" href="{{asset('css/main.css')}}">
