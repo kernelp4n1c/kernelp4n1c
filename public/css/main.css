@@ -1,5 +1,6 @@
 body {
   background-color: #e9eaed;
+  background-image: url(/img/bg_body.png);
 }
 textarea {
   resize: none;
@@ -7,6 +8,11 @@ textarea {
 .wrapper {
   margin-left: 16px;
   margin-right: 16px;
+}
+.teacher {
+  border-radius: 0 0 8px 8px;
+  background-color: rgba(52,73,94,0.6);
+  color: #fff;
 }
 .teacher .teacher-info img {
   width: 150px;
@@ -22,13 +28,14 @@ textarea {
 }
 .teacher .comments {
   list-style: none;
+  padding: 0;
 }
 .teacher .comments li {
   display: block;
 }
-
-
 .comment {
+  border-radius: 3px;
+  color: #333;
   border: 1px #cecece solid;
   padding: 10px;
   background-color: #fff;
