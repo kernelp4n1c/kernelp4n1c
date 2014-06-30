@@ -30,7 +30,7 @@ class General extends Migration {
 		});
 		Schema::create('comments', function($t) {
 			$t->increments('id');
-			$t->string('content');
+			$t->text('content');
 			$t->string('anon_author');
 			$t->integer('comment_id')->unsigned()->nullable();
 			$t->integer('teacher_id')->unsigned();
