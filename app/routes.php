@@ -11,12 +11,10 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', ['uses'=>'HomeController@index']);
 
 Route::get('teacher/{id}', ['uses'=>'TeacherController@index']);
+Route::get('/teachers', ['uses'=>'TeacherController@getTeachers']);
 Route::post('teacher/{id}/comment',['uses'=>'TeacherController@comment']);
 Route::post('teacher/comment/{id}/like',['uses'=>'TeacherController@like']);
 // Route::post('teacher/comment/{id}/dislike',['uses'=>'TeacherController@dislike']);

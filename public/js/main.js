@@ -2,6 +2,7 @@
   var doCommentButton;
   $(document).ready(function() {
     doCommentButton = $('#do-comment');
+    $('#comment-text').focus();
     doCommentButton.on('click', doComment);
     $('#comment-text').on('keyup', enableButton);
     $('#comment-list').on('click', '.like', doLike);
@@ -22,6 +23,7 @@
     };
     $.post('/teacher/'+teacherId+'/comment', data).done(function(res) {
       appendComment(res);
+      $('#comment-text').val('');
     }).error(function(res) {
       console.log(JSON.stringify(res));
     });
@@ -45,8 +47,8 @@
     tpl += '<div class="comment"><div class="comment-head">';
     tpl += '<img src="/uploads/teacher.png" /><span><b>'+comment.anonAuthor+'</b></span>';
     tpl += '<br><span><i class="date">'+parseDate(comment.date)+'</i></span></div>';
-    tpl += '<div class="comment-body"><p>'+comment.comment;
-    tpl += '</p></div>';
+    tpl += '<div class="comment-body">'+comment.comment;
+    tpl += '</div>';
     tpl += '<div class="comment-footer">';
     tpl += '<span>(0) </span><span><a href="#" class="like" data-id="'+comment.id + '"';
     tpl += '>Like</a></span> · ';

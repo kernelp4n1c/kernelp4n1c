@@ -18,6 +18,10 @@ textarea {
   width: 150px;
   height: 80px;
 }
+.teacher .teacher-info a {
+  color: #ccc;
+  text-decoration: underline;
+}
 .teacher .make-comment {
   margin-bottom: 30px;
   overflow: auto;
@@ -60,4 +64,55 @@ textarea {
 }
 .comment .comment-body {
   word-wrap: break-word;
+}
+
+/* For the index */
+.wall {
+  border-radius: 0 0 8px 8px;
+  background-color: rgba(52,73,94,0.6);
+  color: #fff;
+}
+.wall .teachers {
+  box-sizing: border-box;
+  padding: 10px 25px;
+}
+.wall .teachers a {
+  color: #ccc;
+}
+.wall .teachers a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.teacher-item {
+  position: relative;
+  vertical-align: top;
+  border-radius: 3px;
+  width: 150px;
+  height: 220px;
+  background-color: #42466A;
+  display: inline-block;
+  margin: 4px 1px;
+}
+.teacher-item .counter {
+  position: absolute;
+  border-radius: 40px;
+  width: 30px;
+  height: 30px;
+  background: #eee;
+  color: #42466A;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  font-weight: bold;
+  text-align: center;
+  padding: 6px;
+}
+.teacher-item:hover {
+  background-color: #34495E;
+}
+.teacher-item img {
+  width: 160px;
+  height: 160px;
+  padding: 0;
+  margin: 0;
 }

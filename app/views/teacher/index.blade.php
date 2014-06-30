@@ -5,7 +5,8 @@
   <div class="col-md-6 col-md-offset-3 teacher">
     <div class="teacher-info">
       <img src="{{asset("uploads/$model->picture_url")}}" alt="">
-      <h1>{{{$model->name}}}</h1>
+      <h3>{{{$model->name}}}</h3>
+      <a href="/" title="">Volver</a>
     </div>
     <hr>
     <div class="make-comment">

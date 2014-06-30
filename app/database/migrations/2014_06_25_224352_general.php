@@ -43,6 +43,10 @@ class General extends Migration {
 			$t->integer('comment_id')->unsigned();
 			$t->timestamps();
 		});
+
+		Schema::table('teachers', function($t) {
+			$t->integer('count_comments')->default(0);
+		});
 	}
 
 	/**

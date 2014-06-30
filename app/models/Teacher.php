@@ -10,4 +10,7 @@ class Teacher extends Eloquent {
         return $this->hasMany('Comment');
     }
 
+    public function getCommentsAttribute($value) {
+        return intval($value);
+    }
 }

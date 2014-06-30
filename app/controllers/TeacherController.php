@@ -9,6 +9,15 @@ class TeacherController extends BaseController {
             ->with('comments', $comments);
     }
 
+    public function getTeachers() {
+        $teachers = Teacher::select([
+            'id',
+            'name',
+            'picture_url as picture',
+            'count_comments as comments'])->get();
+        return Response::json($teachers, 200);
+    }
+
     public function comment($id) {
         $teacher = Teacher::findOrFail($id);
         $text = trim(Input::get('comment'));
@@ -19,6 +28,9 @@ class TeacherController extends BaseController {
             $comment->teacher_id = $id;
             $comment->count_likes = 0;
             $comment->save();
+
+            $teacher->count_comments++;
+            $teacher->save();
 
             return Response::json([
                 'id'=>$comment->id,
