@@ -24,11 +24,14 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(array(
+// $env = $app->detectEnvironment(array(
 
-	'local' => array('donkeysharp-lp', 'lucy'),
+// 	'local' => array('donkeysharp-lp', 'lucy'),
 
-));
+// ));
+$env = $app->detectEnvironment(function() {
+    return getenv("LARAVEL_ENV") ?: 'production';
+});
 
 /*
 |--------------------------------------------------------------------------

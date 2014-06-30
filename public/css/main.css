@@ -58,6 +58,6 @@ textarea {
   height: 30px;
   margin-right: 10px;
 }
-.comment .comment-body p {
-  text-align: justify;
+.comment .comment-body {
+  word-wrap: break-word;
 }

@@ -26,9 +26,7 @@
             <span><i class="date">{{$comment->created_at->timestamp}}</i></span>
           </div>
           <div class="comment-body">
-            <p>
               {{{$comment->content}}}
-            </p>
           </div>
           <div class="comment-footer">
             <span data-like-id="{{$comment->id}}">({{$comment->count_likes}}) </span>
