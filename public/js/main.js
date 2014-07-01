@@ -1,8 +1,10 @@
 (function() {
   var doCommentButton;
+  var commentTemplate;
   $(document).ready(function() {
     doCommentButton = $('#do-comment');
-    $('#comment-text').focus();
+    commentTemplate = _.template($('#comment-template').html());
+
     doCommentButton.on('click', doComment);
     $('#comment-text').on('keyup', enableButton);
     $('#comment-list').on('click', '.like', doLike);
@@ -24,6 +26,7 @@
     $.post('/teacher/'+teacherId+'/comment', data).done(function(res) {
       appendComment(res);
       $('#comment-text').val('');
+      doCommentButton.get(0).disabled = true;
     }).error(function(res) {
       console.log(JSON.stringify(res));
     });
@@ -43,20 +46,16 @@
     // Not implemented yet
   };
   appendComment = function(comment) {
-    var tpl = '<li>';
-    tpl += '<div class="comment"><div class="comment-head">';
-    tpl += '<img src="/uploads/teacher.png" /><span><b>'+comment.anonAuthor+'</b></span>';
-    tpl += '<br><span><i class="date">'+parseDate(comment.date)+'</i></span></div>';
-    tpl += '<div class="comment-body">'+comment.comment;
-    tpl += '</div>';
-    tpl += '<div class="comment-footer">';
-    tpl += '<span>(0) </span><span><a href="#" class="like" data-id="'+comment.id + '"';
-    tpl += '>Like</a></span> · ';
-    // tpl += '<span>(0) </span><span><a href="#" class="dislike" data-id="'+comment.id + '"';
-    // tpl += '">Dislike</a></span>';
-    tpl += '</div>';
-    tpl += '</li>';
-    $('#comment-list').append(tpl);
+    var compiled = commentTemplate({
+      id: comment.id,
+      comment: comment.comment,
+      anonAuthor: comment.anonAuthor,
+      anonPicture: comment.anonPicture,
+      anonTeacherId: comment.teacherId,
+      likes: comment.likes,
+      date: parseDate(comment.date)
+    });
+    $('#comment-list').append(compiled);
   };
   parseDate = function(timestamp) {
     var months = ['enero', 'febrero', 'marzo', 'junio', 'julio', 'agosto',

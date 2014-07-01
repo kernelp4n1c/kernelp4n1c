@@ -3,11 +3,9 @@ class TeacherController extends BaseController {
     public function index($id) {
         $teacher = Teacher::findOrFail($id);
         $comments = $teacher->comments()->orderBy('count_likes', 'desc')->get();
-        $ramdon = "anon".rand(1,3).".jpg";
 
         return View::make('teacher.index')
             ->with('model', $teacher)
-            ->with('avatar', $ramdon)
             ->with('comments', $comments);
     }
 
@@ -27,6 +25,7 @@ class TeacherController extends BaseController {
             $comment = new Comment();
             $comment->content = $text;
             $comment->anon_author = 'anonymous';
+            $comment->anon_picture = "anon".rand(1,3).".jpg";
             $comment->teacher_id = $id;
             $comment->count_likes = 0;
             $comment->save();
@@ -36,8 +35,9 @@ class TeacherController extends BaseController {
 
             return Response::json([
                 'id'=>$comment->id,
-                'comment'=>$comment->content,
+                'comment'=>htmlentities($comment->content),
                 'anonAuthor'=>$comment->anon_author,
+                'anonPicture'=>$comment->anon_picture,
                 'teacherId'=>intval($comment->teacher_id),
                 'likes'=>$comment->count_likes,
                 'date'=>$comment->created_at->timestamp

@@ -1,12 +1,16 @@
 (function() {
   var teachers;
+  var teacherTemplate;
   var txtName, teacherList;
   $(document).ready(function() {
+    teacherTemplate = _.template($('#teacher-template').html());
+
     $('#name').focus();
     teacherList = $('#teacher-list');
     txtName = $('#name');
     txtName.on('keyup', search);
     getTeachers();
+    // alert( _.template($('#teacher-item').html())({id:1, name:'foobar', comments:0, picture: 'asd.png'}) );
   });
   search = function(e) {
     console.log(e.keyCode);
@@ -29,18 +33,19 @@
     }
   };
   appendTeacher = function(teacher) {
-    var tpl = '';
-    tpl += '<a href="/teacher/'+teacher.id+'">';
-    tpl += '<div class="teacher-item">';
-    tpl += '<img src="/uploads/'+teacher.picture+'" />';
-    tpl += '<div class="counter" title="'+teacher.comments+' comentarios">';
-    tpl += teacher.comments;
-    tpl += '</div>';
-    tpl += '<span>'+teacher.name+'</span>';
-    tpl += '</div>';
-    tpl += '</a>';
+    var compiled = teacherTemplate(teacher);
+    // var tpl = '';
+    // tpl += '<a href="/teacher/'+teacher.id+'">';
+    // tpl += '<div class="teacher-item">';
+    // tpl += '<img src="/uploads/'+teacher.picture+'" />';
+    // tpl += '<div class="counter" title="'+teacher.comments+' comentarios">';
+    // tpl += teacher.comments;
+    // tpl += '</div>';
+    // tpl += '<span>'+teacher.name+'</span>';
+    // tpl += '</div>';
+    // tpl += '</a>';
 
-    teacherList.append(tpl);
+    teacherList.append(compiled);
   };
   getTeachers = function() {
     $.get('/teachers').done(function(res) {

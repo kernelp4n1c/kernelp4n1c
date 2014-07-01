@@ -21,7 +21,7 @@
       <li>
         <div class="comment">
           <div class="comment-head">
-            <img src="{{asset("uploads/$avatar")}}">
+            <img src="{{asset("uploads/$comment->anon_picture")}}">
             <span><b>{{$comment->anon_author}}</b></span>
             <br>
             <span><i class="date">{{$comment->created_at->timestamp}}</i></span>
@@ -32,7 +32,6 @@
           <div class="comment-footer">
             <span data-like-id="{{$comment->id}}">({{$comment->count_likes}}) </span>
             <span><a href="#" class="like" data-id="{{$comment->id}}">Like</a></span> ·
-
           </div>
         </div>
       </li>
@@ -40,6 +39,28 @@
     </ul>
   </div>
 </div>
+@stop
+
+@section('templates')
+<script type="text/template" id="comment-template">
+<li>
+  <div class="comment">
+    <div class="comment-head">
+      <img src="/uploads/<%= anonPicture %>">
+      <span><b><%= anonAuthor %></b></span>
+      <br>
+      <span><i class="date"><%= date %></i></span>
+    </div>
+    <div class="comment-body">
+      <%= comment %>
+    </div>
+    <div class="comment-footer">
+      <span data-like-id="<%= id %>">(<%= likes %>) </span>
+      <span><a href="#" class="like" data-id="<%= id %>">Like</a></span> ·
+    </div>
+  </div>
+</li>
+</script>
 @stop
 
 @section('scripts')

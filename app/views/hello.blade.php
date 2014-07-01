@@ -32,16 +32,16 @@
 @stop
 
 @section('templates')
-<script type="text/template" id="teacher-item">
-  <a href="/teacher/<%= id %>">
-    <div class="teacher-item">
-      <img src="/uploads/<%= picture %>" alt="">
-      <div class="counter"> title="<%= comments %> comentarios">
-        <%= comments %>
-      </div>
-      <span><%= name %></span>
+<script type="text/template" id="teacher-template">
+<a href="/teacher/<%= id %>">
+  <div class="teacher-item">
+    <img src="/uploads/<%= picture %>" alt="">
+    <div class="counter" title="<%= comments %> comentarios">
+      <%= comments %>
     </div>
-  </a>
+    <span><%= name %></span>
+  </div>
+</a>
 </script>
 @stop
 
