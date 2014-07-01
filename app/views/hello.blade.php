@@ -31,6 +31,20 @@
 </div>
 @stop
 
+@section('templates')
+<script type="text/template" id="teacher-item">
+  <a href="/teacher/<%= id %>">
+    <div class="teacher-item">
+      <img src="/uploads/<%= picture %>" alt="">
+      <div class="counter"> title="<%= comments %> comentarios">
+        <%= comments %>
+      </div>
+      <span><%= name %></span>
+    </div>
+  </a>
+</script>
+@stop
+
 @section('scripts')
 <script src="{{asset('js/index.js')}}"></script>
 @stop
