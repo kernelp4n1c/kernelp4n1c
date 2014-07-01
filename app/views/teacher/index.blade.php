@@ -21,7 +21,7 @@
       <li>
         <div class="comment">
           <div class="comment-head">
-            <img src="{{asset("uploads/$model->picture_url")}}">
+            <img src="{{asset("uploads/$avatar")}}">
             <span><b>{{$comment->anon_author}}</b></span>
             <br>
             <span><i class="date">{{$comment->created_at->timestamp}}</i></span>
