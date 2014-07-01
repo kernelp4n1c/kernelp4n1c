@@ -3,9 +3,11 @@ class TeacherController extends BaseController {
     public function index($id) {
         $teacher = Teacher::findOrFail($id);
         $comments = $teacher->comments()->orderBy('count_likes', 'desc')->get();
+        $ramdon = "anon".rand(1,3).".jpg";
 
         return View::make('teacher.index')
             ->with('model', $teacher)
+            ->with('avatar', $ramdon)
             ->with('comments', $comments);
     }
 
