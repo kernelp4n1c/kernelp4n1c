@@ -12,6 +12,10 @@
           id="name"
           autocomplete="off"
           placeholder="Busque por nombre" />
+        <span style="color: #E65F5F; font-size: 11px; ">
+          Críticas no constructivas para cualquier docente serán eliminadas,
+          a menos que estan seas graciosas como los apodos de los docentes :)
+        </span>
       </div>
     </div>
     <div class="teachers" id="teacher-list">
