@@ -2,7 +2,7 @@
 class TeacherController extends BaseController {
     public function index($id) {
         $teacher = Teacher::findOrFail($id);
-        $comments = $teacher->comments()->orderBy('count_likes', 'desc')->get();
+        $comments = $teacher->comments()->where('visible', '=', true)->get();
 
         return View::make('teacher.index')
             ->with('model', $teacher)
